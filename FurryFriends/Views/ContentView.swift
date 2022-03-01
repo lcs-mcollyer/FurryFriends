@@ -22,25 +22,60 @@ struct ContentView: View {
             
             // Shows the main image
             RemoteImageView(fromURL: currentImage)
+                .padding()
+           
             
-            // Push main image to top of screen
+            Button(action: {
+                
+            },label: {
+                Text("next dog")
+                })
+            buttonStyle(.bordered)
+            
+            
+            
+            // Load in the required favourites Icon
+            // Hstack, to prepare for two images:
+            // One that will turn red and on that
+            // Stays the same throughout
+            HStack{
+                Image(systemName: "heart.text.square.fill")
+                    .font(.largeTitle)
+            }
+            
+        
+            
+            Text("Saved")
+                .font(.title)
+            Text("List of dogs to be filled")
+                .font(.caption)
+            
+            // Push main grouping
             Spacer()
-
         }
+        
+        
+        
+        
         // Runs once when the app is opened
         .task {
             
+            
             // Example images for each type of pet
-            let remoteCatImage = "https://purr.objects-us-east-1.dream.io/i/JJiYI.jpg"
+            //            let remoteCatImage = "https://purr.objects-us-east-1.dream.io/i/JJiYI.jpg"
+            
+            //MARK: Load Dog image
+            
             let remoteDogImage = "https://images.dog.ceo/breeds/labrador/lab_young.JPG"
             
             // Replaces the transparent pixel image with an actual image of an animal
             // Adjust according to your preference ☺️
             currentImage = URL(string: remoteDogImage)!
-                        
+            
+            
+            
         }
         .navigationTitle("Furry Friends")
-        
     }
     
     // MARK: Functions
